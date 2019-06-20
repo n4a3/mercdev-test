@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gotham Medium'),
+       url('./GothamMedium.woff') format('woff'),
+       url('./GothamMedium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Gotham Bold'),
+       url('./GothamBold.woff') format('woff'),
+       url('./GothamBold.ttf') format('truetype');
+}

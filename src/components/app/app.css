@@ -1,0 +1,44 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 24px
+}
+
+body {
+  font-family: Gotham;
+}
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f43e64;
+  background-image: url(./img/background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .login-page {
+    background-image: url(./img/background@2x.jpg);
+  }
+}
+
+.user-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  max-width: 600px;
+  width: 60vw;
+  padding: 48px;
+  padding-bottom: 60px;
+  text-align: center;
+}

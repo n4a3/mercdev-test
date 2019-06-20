@@ -1,0 +1,53 @@
+.auth input {
+  border: none;
+  background: none;
+}
+
+.auth form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.auth input[type="email"],
+.auth input[type="password"] {
+  padding: 0;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 16px;
+  padding: 14px 16px;
+  font-family: Gotham;
+  color: #262626;
+  opacity: 0.8;
+}
+
+.auth input[type="email"]::placeholder,
+.auth input[type="password"]::placeholder {
+  opacity: 0.4;
+}
+
+.auth button {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 100px;
+  background-color: #ed4159;
+  box-shadow: 0 4px 16px 0 rgba(237, 65, 89, 0.4);
+  color: #ffffff;
+  font-family: Gotham;
+  font-size: 14px;
+}
+
+.auth h1 {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  color: #262626;
+}
+
+.auth.error input[type="email"],
+.auth.error input[type="password"] {
+  border: 1px solid #ed4159;
+  color: #ed4159;
+}
