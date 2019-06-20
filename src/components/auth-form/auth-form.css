@@ -28,17 +28,6 @@
   opacity: 0.4;
 }
 
-.auth button {
-  padding: 16px 32px;
-  border: none;
-  border-radius: 100px;
-  background-color: #ed4159;
-  box-shadow: 0 4px 16px 0 rgba(237, 65, 89, 0.4);
-  color: #ffffff;
-  font-family: Gotham;
-  font-size: 14px;
-}
-
 .auth h1 {
   font-size: 1rem;
   margin: 0;

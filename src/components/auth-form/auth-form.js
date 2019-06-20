@@ -4,7 +4,8 @@ import './auth-form.css'
 
 const AuthForm = () => {
   return (
-    <div className="auth">
+    <div className="auth"
+    onSubmit={(e) => e.preventDefault()}>
       <h1>Log In</h1>
       <form
       
