@@ -1,6 +1,8 @@
 import React from 'react'
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 
+import { fetchLogin } from '../../actions';
 import withMercdevService from '../hoc/withMercdevService'
 import { compose } from '../../utils'
 
@@ -18,7 +20,7 @@ const AuthForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetchLogin()
+    props.fetchLogin()
   }
 
   return (
@@ -47,7 +49,13 @@ const mapStateToProps = ({ user: {error} }) => {
   return {error}
 }
 
+const mapDispatchToProps = (dispatch, { mercdevService }) => {
+  return bindActionCreators({
+    fetchLogin: fetchLogin(dispatch, mercdevService)
+  }, dispatch)
+}
+
 export default compose(
   withMercdevService(),
-  connect(mapStateToProps)
+  connect(mapStateToProps, mapDispatchToProps)
   )(AuthForm)
