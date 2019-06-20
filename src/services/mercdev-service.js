@@ -18,8 +18,7 @@ export default class MercdevService {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(body)
-    }).then(res => res.json())
-      .then(body => console.log(body))
+    })
   }
 
 }

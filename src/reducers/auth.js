@@ -3,7 +3,6 @@ const userAuth = (state, action) => {
   if (state === undefined) {
     return {
       userData: null,
-      loading: false,
       error: null
     }
   }
@@ -12,21 +11,18 @@ const userAuth = (state, action) => {
     case 'FETCH_AUTH_REQUEST':
       return {
         userData: null,
-        loading: true,
         error: null
       }
 
     case 'FETCH_AUTH_SUCCESS':
       return {
         userData: action.payload,
-        loading: false,
         error: null
       }
 
     case 'FETCH_AUTH_FAILURE':
       return {
         userData: null,
-        loading: false,
         error: action.payload
       }
 
