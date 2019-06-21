@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import AuthForm from '../auth-form'
 import UserInfo from '../user-info'
 
@@ -7,16 +9,19 @@ import './app.css'
 
 import logo from './img/w-mercury-development.svg'
 
-const App = () => {
+const App = (props) => {
   return (
     <main className="user-page">
       <img src={logo} alt="Mercury Development" className="logo"/>
       <div className="user-box">
-        <AuthForm />
-        {/* <UserInfo userData={{name: 'test', photoUrl: 'https://api.adorable.io/avatars/285/abott@adorable.png'}}/> */}
+        {props.userData ? <UserInfo userData={props.userData} /> : <AuthForm />}
       </div>
     </main>
   )
 }
 
-export default App
+const mapStateToProps = ({user: {userData}}) => {
+  return {userData}
+}
+
+export default connect(mapStateToProps)(App)

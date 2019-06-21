@@ -2,7 +2,7 @@ export default class MercdevService {
 
   _apiBase = 'https://us-central1-mercdev-academy.cloudfunctions.net'
   
-  userLogin = async (email, password) => {
+  userLogin = (email, password) => {
     const url = `${this._apiBase}/login`
 
     const headers = new Headers({
@@ -14,7 +14,7 @@ export default class MercdevService {
       password
     }
 
-    fetch(url, {
+    return fetch(url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(body)

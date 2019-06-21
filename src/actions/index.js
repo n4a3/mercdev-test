@@ -4,24 +4,54 @@ const authRequest = () => {
   }
 }
 
-const authLoaded = () => {
+const authLoaded = (userData) => {
   return {
-    type: 'FETCH_AUTH_SUCCESS'
+    type: 'FETCH_AUTH_SUCCESS',
+    payload: userData
   }
 }
 
-const authError = () => {
+const authError = (err) => {
   return {
-    type: 'FETCH_AUTH_FAILURE'
+    type: 'FETCH_AUTH_FAILURE',
+    payload: err
   }
 }
 
-const fetchLogin = (email, password) => (mercdevService) => () => (dispatch) =>{
+const authLogout = () => {
+  return {
+    type: 'LOGOUT'
+  }
+}
+
+const fetchLogin = (mercdevService) => (email, password) => (dispatch) => {
   dispatch(authRequest())
   mercdevService.userLogin(email, password)
-    .then((data) => dispatch(authLoaded(data)))
-    .catch((err) => dispatch(authError(err)))
+    .then((data) => {
+      if (!data.ok) {
+        if (data.status === 400) {
+          dispatch(authError('E-Mail or password is incorrect'))
+        } else {
+          dispatch(authError(`Error #${data.status}`))
+        }
+      }
+
+      if (data.status === 200) {
+        return data.json()
+      }
+    })
+    .then((data) => {
+      if (data !== undefined) {
+        dispatch(authLoaded(data))
+      }
+    })
+    .catch((err) => {
+      dispatch(authError(err))
+    })
 }
 
 
-export { fetchLogin }
+export {
+  fetchLogin,
+  authLogout
+}

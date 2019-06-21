@@ -26,6 +26,12 @@ const userAuth = (state, action) => {
         error: action.payload
       }
 
+    case 'LOGOUT':
+      return {
+        userData: null,
+        error: null
+      }
+
     default:
       return state.userAuth
   }
