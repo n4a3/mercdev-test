@@ -1,3 +1,6 @@
-import { MercdevServiceProvider, MercdevServiceConsumer } from './mercdev-service-context'
+import {
+  MercdevServiceProvider,
+  MercdevServiceConsumer
+} from "./mercdev-service-context";
 
-export { MercdevServiceProvider, MercdevServiceConsumer }
+export { MercdevServiceProvider, MercdevServiceConsumer };

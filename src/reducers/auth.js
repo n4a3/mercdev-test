@@ -1,41 +1,39 @@
 const userAuth = (state, action) => {
-
   if (state === undefined) {
     return {
       userData: null,
       error: null
-    }
+    };
   }
 
   switch (action.type) {
-    case 'FETCH_AUTH_REQUEST':
+    case "FETCH_AUTH_REQUEST":
       return {
         userData: null,
         error: null
-      }
+      };
 
-    case 'FETCH_AUTH_SUCCESS':
+    case "FETCH_AUTH_SUCCESS":
       return {
         userData: action.payload,
         error: null
-      }
+      };
 
-    case 'FETCH_AUTH_FAILURE':
+    case "FETCH_AUTH_FAILURE":
       return {
         userData: null,
         error: action.payload
-      }
+      };
 
-    case 'LOGOUT':
+    case "LOGOUT":
       return {
         userData: null,
         error: null
-      }
+      };
 
     default:
-      return state.userAuth
+      return state.userAuth;
   }
+};
 
-}
-
-export default userAuth
+export default userAuth;

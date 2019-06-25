@@ -1,16 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Provider } from 'react-redux'
-import store from './store'
+import { Provider } from "react-redux";
+import store from "./store";
 
-import App from './components/app'
-import { MercdevServiceProvider } from './components/mercdev-service-context'
-import { MercdevService } from './services'
+import App from "./components/app";
+import { MercdevServiceProvider } from "./components/mercdev-service-context";
+import { MercdevService } from "./services";
 
-const mercdevService = new MercdevService()
-
-
+const mercdevService = new MercdevService();
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,5 +16,5 @@ ReactDOM.render(
       <App />
     </MercdevServiceProvider>
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
