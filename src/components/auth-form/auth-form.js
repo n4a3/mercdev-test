@@ -3,8 +3,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { fetchLogin } from "../../actions";
-import withMercdevService from "../hoc/withMercdevService";
-import { compose } from "../../utils";
 
 import "./auth-form.css";
 
@@ -48,19 +46,16 @@ const mapStateToProps = ({ user: { error } }) => {
   return { error };
 };
 
-const mapDispatchToProps = (dispatch, { mercdevService }) => {
+const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      fetchLogin: fetchLogin(mercdevService)
+      fetchLogin: fetchLogin()
     },
     dispatch
   );
 };
 
-export default compose(
-  withMercdevService(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(AuthForm);

@@ -1,3 +1,3 @@
-import MercdevService from "./mercdev-service";
+import mercdevService from "./mercdev-service";
 
-export { MercdevService };
+export { mercdevService };

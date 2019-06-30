@@ -1,4 +1,4 @@
-export default class MercdevService {
+class MercdevService {
   _apiBase = "https://us-central1-mercdev-academy.cloudfunctions.net";
 
   userLogin = (email, password) => {
@@ -20,3 +20,7 @@ export default class MercdevService {
     });
   };
 }
+
+const mercdevService = new MercdevService();
+
+export default mercdevService;
