@@ -1,57 +1,56 @@
+import { mercdevService } from "../services";
+
 const authRequest = () => {
   return {
-    type: 'FETCH_AUTH_REQUEST'
-  }
-}
+    type: "FETCH_AUTH_REQUEST"
+  };
+};
 
-const authLoaded = (userData) => {
+const authLoaded = userData => {
   return {
-    type: 'FETCH_AUTH_SUCCESS',
+    type: "FETCH_AUTH_SUCCESS",
     payload: userData
-  }
-}
+  };
+};
 
-const authError = (err) => {
+const authError = err => {
   return {
-    type: 'FETCH_AUTH_FAILURE',
+    type: "FETCH_AUTH_FAILURE",
     payload: err
-  }
-}
+  };
+};
 
 const authLogout = () => {
   return {
-    type: 'LOGOUT'
-  }
-}
+    type: "LOGOUT"
+  };
+};
 
-const fetchLogin = (mercdevService) => (email, password) => (dispatch) => {
-  dispatch(authRequest())
-  mercdevService.userLogin(email, password)
-    .then((data) => {
+const fetchLogin = () => (email, password) => dispatch => {
+  dispatch(authRequest());
+  mercdevService
+    .userLogin(email, password)
+    .then(data => {
       if (!data.ok) {
         if (data.status === 400) {
-          dispatch(authError('E-Mail or password is incorrect'))
+          dispatch(authError("E-Mail or password is incorrect"));
         } else {
-          dispatch(authError(`Error #${data.status}`))
+          dispatch(authError(`Error #${data.status}`));
         }
       }
 
       if (data.status === 200) {
-        return data.json()
+        return data.json();
       }
     })
-    .then((data) => {
+    .then(data => {
       if (data !== undefined) {
-        dispatch(authLoaded(data))
+        dispatch(authLoaded(data));
       }
     })
-    .catch((err) => {
-      dispatch(authError(err))
-    })
-}
+    .catch(err => {
+      dispatch(authError(err));
+    });
+};
 
-
-export {
-  fetchLogin,
-  authLogout
-}
+export { fetchLogin, authLogout };
